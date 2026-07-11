@@ -1,0 +1,34 @@
+<div class="login-page">
+  <form class="login-card aph-glass" [formGroup]="form" (ngSubmit)="submit()">
+    <h1>Create your account</h1>
+    <p class="subtitle">Start organizing your work with AI Productivity Hub</p>
+
+    @if (errorMessage()) {
+      <div class="alert-error">{{ errorMessage() }}</div>
+    }
+
+    <label>
+      <span>Full name</span>
+      <input type="text" formControlName="fullName" placeholder="Jane Doe" />
+    </label>
+
+    <label>
+      <span>Email</span>
+      <input type="email" formControlName="email" placeholder="you@example.com" />
+    </label>
+
+    <label>
+      <span>Password</span>
+      <input type="password" formControlName="password" placeholder="••••••••" />
+      @if (form.controls.password.touched && form.controls.password.invalid) {
+        <small class="field-error">Password must be at least 8 characters.</small>
+      }
+    </label>
+
+    <button type="submit" class="primary-btn" [disabled]="loading()">
+      {{ loading() ? 'Creating account…' : 'Create account' }}
+    </button>
+
+    <p class="switch-link">Already have an account? <a routerLink="/auth/login">Sign in</a></p>
+  </form>
+</div>

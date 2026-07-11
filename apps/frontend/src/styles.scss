@@ -1,0 +1,12 @@
+@use 'assets/styles/theme';
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--aph-bg);
+  color: var(--aph-text-primary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}

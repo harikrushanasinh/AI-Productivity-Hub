@@ -1,0 +1,47 @@
+// Design tokens for both themes. Components should ONLY reference these
+// custom properties (never hardcode colors) so theme switching is instant.
+
+:root {
+  // Light theme (default)
+  --aph-bg: #f5f6fa;
+  --aph-surface: rgba(255, 255, 255, 0.65);
+  --aph-surface-solid: #ffffff;
+  --aph-border: rgba(15, 23, 42, 0.08);
+  --aph-text-primary: #12141c;
+  --aph-text-secondary: #5a5f72;
+  --aph-accent: #6366f1;
+  --aph-accent-soft: rgba(99, 102, 241, 0.12);
+  --aph-success: #16a34a;
+  --aph-warning: #d97706;
+  --aph-danger: #dc2626;
+  --aph-blur: blur(16px);
+  --aph-radius-sm: 8px;
+  --aph-radius-md: 14px;
+  --aph-radius-lg: 20px;
+  --aph-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='dark'] {
+  --aph-bg: #0d0e14;
+  --aph-surface: rgba(255, 255, 255, 0.06);
+  --aph-surface-solid: #16171f;
+  --aph-border: rgba(255, 255, 255, 0.08);
+  --aph-text-primary: #f2f3f7;
+  --aph-text-secondary: #9a9db0;
+  --aph-accent: #818cf8;
+  --aph-accent-soft: rgba(129, 140, 248, 0.16);
+  --aph-success: #4ade80;
+  --aph-warning: #fbbf24;
+  --aph-danger: #f87171;
+  --aph-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+// Reusable glass-panel utility class
+.aph-glass {
+  background: var(--aph-surface);
+  backdrop-filter: var(--aph-blur);
+  -webkit-backdrop-filter: var(--aph-blur);
+  border: 1px solid var(--aph-border);
+  border-radius: var(--aph-radius-md);
+  box-shadow: var(--aph-shadow);
+}

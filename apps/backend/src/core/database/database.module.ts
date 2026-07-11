@@ -1,0 +1,25 @@
+import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
+@Module({
+  imports: [
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => ({
+        type: 'postgres',
+        host: config.get<string>('database.host'),
+        port: config.get<number>('database.port'),
+        username: config.get<string>('database.username'),
+        password: config.get<string>('database.password'),
+        database: config.get<string>('database.database'),
+        autoLoadEntities: true,
+        // Never true in production: schema changes must go through migrations.
+        synchronize: config.get<string>('app.environment') === 'development',
+        logging: config.get<string>('app.environment') === 'development',
+      }),
+    }),
+  ],
+})
+export class DatabaseModule {}

@@ -1,0 +1,28 @@
+<h1>Notes</h1>
+
+<div class="new-note aph-glass">
+  <input
+    type="text"
+    placeholder="Quick note title…"
+    [ngModel]="newTitle()"
+    (ngModelChange)="newTitle.set($event)"
+    (keyup.enter)="createNote()"
+  />
+  <button (click)="createNote()">Add</button>
+</div>
+
+@if (loading()) {
+  <p>Loading notes…</p>
+} @else if (notes().length === 0) {
+  <p class="empty-state">No notes yet — create your first one above.</p>
+} @else {
+  <div class="notes-grid">
+    @for (note of notes(); track trackByNoteId($index, note)) {
+      <div class="note-card aph-glass">
+        <h3>{{ note.title }}</h3>
+        <p>{{ note.content || 'No content yet.' }}</p>
+        <button class="delete-btn" (click)="deleteNote(note.id)">Delete</button>
+      </div>
+    }
+  </div>
+}

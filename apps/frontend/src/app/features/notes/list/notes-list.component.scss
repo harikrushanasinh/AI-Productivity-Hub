@@ -1,0 +1,54 @@
+.new-note {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  margin: 16px 0 24px;
+
+  input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--aph-border);
+    border-radius: var(--aph-radius-sm);
+    background: var(--aph-surface-solid);
+    color: var(--aph-text-primary);
+  }
+
+  button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: var(--aph-radius-sm);
+    background: var(--aph-accent);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.note-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  h3 { margin: 0; font-size: 15px; }
+  p { margin: 0; font-size: 13px; color: var(--aph-text-secondary); flex: 1; }
+
+  .delete-btn {
+    align-self: flex-end;
+    border: none;
+    background: transparent;
+    color: var(--aph-danger);
+    font-size: 12px;
+    cursor: pointer;
+  }
+}
+
+.empty-state {
+  color: var(--aph-text-secondary);
+}

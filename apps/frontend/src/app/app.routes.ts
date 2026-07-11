@@ -1,0 +1,32 @@
+import { Routes } from '@angular/router';
+import { authGuard } from './core/guards/auth.guard';
+
+export const routes: Routes = [
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  {
+    path: 'auth',
+    loadChildren: () => import('./features/auth/auth.routes').then((m) => m.AUTH_ROUTES),
+  },
+  {
+    // All authenticated feature routes render inside the sidebar/topbar shell.
+    path: '',
+    canActivate: [authGuard],
+    loadComponent: () => import('./layout/shell.component').then((m) => m.ShellComponent),
+    children: [
+      {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./features/dashboard/dashboard.component').then((m) => m.DashboardComponent),
+      },
+      {
+        path: 'notes',
+        loadChildren: () => import('./features/notes/notes.routes').then((m) => m.NOTES_ROUTES),
+      },
+      {
+        path: 'tasks',
+        loadChildren: () => import('./features/tasks/tasks.routes').then((m) => m.TASKS_ROUTES),
+      },
+    ],
+  },
+  { path: '**', redirectTo: 'dashboard' },
+];
