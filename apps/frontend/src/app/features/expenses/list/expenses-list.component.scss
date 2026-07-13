@@ -1,0 +1,91 @@
+.summary-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.summary-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .label { font-size: 12px; color: var(--aph-text-secondary); }
+  .value { font-size: 20px; font-weight: 700; }
+  .value.income { color: var(--aph-success); }
+  .value.expense { color: var(--aph-danger); }
+}
+
+.new-expense {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  margin-bottom: 24px;
+
+  input, select {
+    padding: 9px 10px;
+    border: 1px solid var(--aph-border);
+    border-radius: var(--aph-radius-sm);
+    background: var(--aph-surface-solid);
+    color: var(--aph-text-primary);
+    font-size: 13px;
+  }
+
+  input[type="text"] { flex: 1; min-width: 160px; }
+
+  button {
+    padding: 9px 18px;
+    border: none;
+    border-radius: var(--aph-radius-sm);
+    background: var(--aph-accent);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.expense-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.expense-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  font-size: 13px;
+
+  .title { flex: 1; }
+
+  .category {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--aph-accent-soft);
+    color: var(--aph-accent);
+    text-transform: capitalize;
+  }
+
+  .date { color: var(--aph-text-secondary); }
+
+  .amount {
+    font-weight: 600;
+    color: var(--aph-danger);
+    &.income { color: var(--aph-success); }
+  }
+
+  .delete-btn {
+    border: none;
+    background: transparent;
+    color: var(--aph-text-secondary);
+    cursor: pointer;
+  }
+}
+
+.empty-state {
+  color: var(--aph-text-secondary);
+}

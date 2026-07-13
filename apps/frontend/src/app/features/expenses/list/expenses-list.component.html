@@ -1,0 +1,62 @@
+<h1>Expense Tracker</h1>
+
+@if (summary(); as s) {
+  <div class="summary-row">
+    <div class="summary-card aph-glass">
+      <span class="label">Income</span>
+      <span class="value income">{{ formatAmount(s.income, 'USD') }}</span>
+    </div>
+    <div class="summary-card aph-glass">
+      <span class="label">Expenses</span>
+      <span class="value expense">{{ formatAmount(s.expense, 'USD') }}</span>
+    </div>
+    <div class="summary-card aph-glass">
+      <span class="label">Net</span>
+      <span class="value" [class.income]="s.net >= 0" [class.expense]="s.net < 0">
+        {{ formatAmount(s.net, 'USD') }}
+      </span>
+    </div>
+  </div>
+}
+
+<div class="new-expense aph-glass">
+  <input
+    type="text"
+    placeholder="What was it for?"
+    [ngModel]="newTitle()"
+    (ngModelChange)="newTitle.set($event)"
+  />
+  <input
+    type="number"
+    step="0.01"
+    placeholder="Amount"
+    [ngModel]="newAmount()"
+    (ngModelChange)="newAmount.set($event)"
+  />
+  <input type="date" [ngModel]="newDate()" (ngModelChange)="newDate.set($event)" />
+  <select [ngModel]="newType()" (ngModelChange)="newType.set($event)">
+    <option value="expense">Expense</option>
+    <option value="income">Income</option>
+  </select>
+  <button (click)="createExpense()">Add</button>
+</div>
+
+@if (loading()) {
+  <p>Loading…</p>
+} @else if (expenses().length === 0) {
+  <p class="empty-state">No expenses recorded yet.</p>
+} @else {
+  <div class="expense-list">
+    @for (expense of expenses(); track trackByExpenseId($index, expense)) {
+      <div class="expense-row aph-glass">
+        <span class="title">{{ expense.title }}</span>
+        <span class="category">{{ expense.category }}</span>
+        <span class="date">{{ expense.spentOn }}</span>
+        <span class="amount" [class.income]="expense.type === 'income'">
+          {{ expense.type === 'income' ? '+' : '-' }}{{ formatAmount(expense.amountMinor, expense.currency) }}
+        </span>
+        <button class="delete-btn" (click)="deleteExpense(expense.id)">✕</button>
+      </div>
+    }
+  </div>
+}

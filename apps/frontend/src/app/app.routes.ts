@@ -36,6 +36,11 @@ export const routes: Routes = [
         loadChildren: () =>
           import('./features/journal/journal.routes').then((m) => m.JOURNAL_ROUTES),
       },
+      {
+        path: 'expenses',
+        loadChildren: () =>
+          import('./features/expenses/expenses.routes').then((m) => m.EXPENSES_ROUTES),
+      },
     ],
   },
   { path: '**', redirectTo: 'dashboard' },

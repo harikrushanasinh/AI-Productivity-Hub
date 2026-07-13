@@ -13,6 +13,7 @@ import { NotesModule } from './modules/notes/notes.module';
 import { TasksModule } from './modules/tasks/tasks.module';
 import { CalendarModule } from './modules/calendar/calendar.module';
 import { JournalModule } from './modules/journal/journal.module';
+import { ExpensesModule } from './modules/expenses/expenses.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { JournalModule } from './modules/journal/journal.module';
     TasksModule,
     CalendarModule,
     JournalModule,
+    ExpensesModule,
   ],
   providers: [
     {
