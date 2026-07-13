@@ -17,6 +17,7 @@ export class ShellComponent {
     { path: '/notes', icon: '📝', label: 'Notes' },
     { path: '/tasks', icon: '✅', label: 'Tasks' },
     { path: '/calendar', icon: '📅', label: 'Calendar' },
+    { path: '/journal', icon: '📔', label: 'Journal' },
   ];
 
   constructor(

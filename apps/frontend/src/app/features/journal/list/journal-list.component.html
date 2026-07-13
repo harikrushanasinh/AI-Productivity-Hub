@@ -1,0 +1,45 @@
+<h1>Journal</h1>
+
+<div class="new-entry aph-glass">
+  <div class="mood-picker">
+    @for (m of moodOptions; track m) {
+      <button
+        type="button"
+        class="mood-btn"
+        [class.selected]="newMood() === m"
+        (click)="newMood.set(m)"
+      >{{ moodEmoji[m] }}</button>
+    }
+  </div>
+  <textarea
+    rows="3"
+    placeholder="How was your day?"
+    [ngModel]="newContent()"
+    (ngModelChange)="newContent.set($event)"
+  ></textarea>
+  @if (errorMessage()) {
+    <div class="alert-error">{{ errorMessage() }}</div>
+  }
+  <button class="save-btn" (click)="createEntry()">Save today's entry</button>
+</div>
+
+@if (loading()) {
+  <p>Loading entries…</p>
+} @else if (entries().length === 0) {
+  <p class="empty-state">No entries yet — write your first one above.</p>
+} @else {
+  <div class="entry-list">
+    @for (entry of entries(); track trackByEntryId($index, entry)) {
+      <div class="entry-card aph-glass">
+        <div class="entry-header">
+          <span class="entry-date">{{ entry.entryDate }}</span>
+          @if (entry.mood) {
+            <span class="entry-mood">{{ moodEmoji[entry.mood] }}</span>
+          }
+          <button class="delete-btn" (click)="deleteEntry(entry.id)">Delete</button>
+        </div>
+        <p class="entry-content">{{ entry.content }}</p>
+      </div>
+    }
+  </div>
+}

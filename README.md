@@ -78,7 +78,7 @@ live in `core/` and `common/`.
 | Notes | ✅ |
 | Tasks | ✅ |
 | Calendar | ✅ (see `docs/calendar-module.md`) |
-| Journal | 🔲 Planned |
+| Journal | ✅ (see `docs/journal-module.md`) |
 | Expense Tracker | 🔲 Planned |
 | File Manager | 🔲 Planned |
 | Password Vault | 🔲 Planned |

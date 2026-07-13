@@ -31,6 +31,11 @@ export const routes: Routes = [
         loadChildren: () =>
           import('./features/calendar/calendar.routes').then((m) => m.CALENDAR_ROUTES),
       },
+      {
+        path: 'journal',
+        loadChildren: () =>
+          import('./features/journal/journal.routes').then((m) => m.JOURNAL_ROUTES),
+      },
     ],
   },
   { path: '**', redirectTo: 'dashboard' },
