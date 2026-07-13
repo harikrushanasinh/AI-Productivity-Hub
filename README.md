@@ -75,9 +75,9 @@ live in `core/` and `common/`.
 |---|---|
 | Auth (JWT + Refresh + RBAC) | ✅ Foundation in this commit |
 | Users | ✅ Foundation in this commit |
-| Notes | 🔲 Next |
-| Tasks | 🔲 Next |
-| Calendar | 🔲 Planned |
+| Notes | ✅ |
+| Tasks | ✅ |
+| Calendar | ✅ (see `docs/calendar-module.md`) |
 | Journal | 🔲 Planned |
 | Expense Tracker | 🔲 Planned |
 | File Manager | 🔲 Planned |

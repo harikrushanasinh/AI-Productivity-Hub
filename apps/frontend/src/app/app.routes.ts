@@ -26,6 +26,11 @@ export const routes: Routes = [
         path: 'tasks',
         loadChildren: () => import('./features/tasks/tasks.routes').then((m) => m.TASKS_ROUTES),
       },
+      {
+        path: 'calendar',
+        loadChildren: () =>
+          import('./features/calendar/calendar.routes').then((m) => m.CALENDAR_ROUTES),
+      },
     ],
   },
   { path: '**', redirectTo: 'dashboard' },

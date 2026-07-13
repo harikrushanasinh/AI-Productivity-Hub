@@ -1,0 +1,41 @@
+<div class="calendar-header">
+  <div class="nav">
+    <button (click)="prevMonth()">‹</button>
+    <h1>{{ monthLabel() }}</h1>
+    <button (click)="nextMonth()">›</button>
+  </div>
+
+  <div class="quick-add aph-glass">
+    <input
+      type="text"
+      placeholder="Event title…"
+      [ngModel]="newTitle()"
+      (ngModelChange)="newTitle.set($event)"
+    />
+    <input
+      type="date"
+      [ngModel]="newDate()"
+      (ngModelChange)="newDate.set($event)"
+    />
+    <button (click)="createEvent()">Add</button>
+  </div>
+</div>
+
+<div class="weekday-row">
+  @for (label of weekdayLabels; track label) {
+    <div class="weekday-label">{{ label }}</div>
+  }
+</div>
+
+<div class="month-grid">
+  @for (day of days(); track trackByDay($index, day)) {
+    <div class="day-cell aph-glass" [class.today]="day.isToday" [class.outside]="!day.inCurrentMonth">
+      <span class="day-number">{{ day.date.getDate() }}</span>
+      @for (event of day.events; track trackByEventId($index, event)) {
+        <div class="event-chip" [style.background]="event.color" (click)="deleteEvent(event.id, $event)">
+          {{ event.title }}
+        </div>
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,98 @@
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    h1 { margin: 0; font-size: 18px; min-width: 180px; }
+
+    button {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--aph-border);
+      background: var(--aph-surface-solid);
+      color: var(--aph-text-primary);
+      cursor: pointer;
+      font-size: 16px;
+    }
+  }
+
+  .quick-add {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+
+    input {
+      padding: 8px 10px;
+      border: 1px solid var(--aph-border);
+      border-radius: var(--aph-radius-sm);
+      background: var(--aph-surface-solid);
+      color: var(--aph-text-primary);
+      font-size: 13px;
+    }
+
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: var(--aph-radius-sm);
+      background: var(--aph-accent);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+}
+
+.weekday-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 8px;
+
+  .weekday-label {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--aph-text-secondary);
+  }
+}
+
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.day-cell {
+  min-height: 90px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &.outside { opacity: 0.4; }
+  &.today { border-color: var(--aph-accent); }
+
+  .day-number {
+    font-size: 12px;
+    color: var(--aph-text-secondary);
+  }
+
+  .event-chip {
+    font-size: 11px;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

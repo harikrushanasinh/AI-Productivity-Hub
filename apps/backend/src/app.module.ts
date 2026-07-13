@@ -11,6 +11,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { NotesModule } from './modules/notes/notes.module';
 import { TasksModule } from './modules/tasks/tasks.module';
+import { CalendarModule } from './modules/calendar/calendar.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { TasksModule } from './modules/tasks/tasks.module';
     UsersModule,
     NotesModule,
     TasksModule,
+    CalendarModule,
   ],
   providers: [
     {
