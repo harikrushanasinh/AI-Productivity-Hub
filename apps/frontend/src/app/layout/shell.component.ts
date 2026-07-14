@@ -20,6 +20,7 @@ export class ShellComponent {
     { path: '/journal', icon: '📔', label: 'Journal' },
     { path: '/expenses', icon: '💰', label: 'Expenses' },
     { path: '/habits', icon: '🔥', label: 'Habits' },
+    { path: '/goals', icon: '🎯', label: 'Goals' },
   ];
 
   constructor(

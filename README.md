@@ -83,7 +83,7 @@ live in `core/` and `common/`.
 | File Manager | 🔲 Planned |
 | Password Vault | 🔲 Planned |
 | Habit Tracker | ✅ (see `docs/habit-tracker-module.md`) |
-| Goal Tracker | 🔲 Planned |
+| Goal Tracker | ✅ (see `docs/goal-tracker-module.md`) |
 | Focus Timer | 🔲 Planned |
 | Bookmarks | 🔲 Planned |
 | Team Collaboration | 🔲 Planned |

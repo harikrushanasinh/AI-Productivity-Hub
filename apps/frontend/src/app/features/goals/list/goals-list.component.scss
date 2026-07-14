@@ -1,0 +1,126 @@
+.new-goal {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  margin: 16px 0 24px;
+
+  input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--aph-border);
+    border-radius: var(--aph-radius-sm);
+    background: var(--aph-surface-solid);
+    color: var(--aph-text-primary);
+  }
+
+  button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: var(--aph-radius-sm);
+    background: var(--aph-accent);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.goal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.goal-card {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .goal-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .title { font-size: 15px; font-weight: 600; flex: 1; }
+
+    .status {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--aph-accent-soft);
+      color: var(--aph-accent);
+      text-transform: capitalize;
+    }
+
+    .delete-btn {
+      border: none;
+      background: transparent;
+      color: var(--aph-text-secondary);
+      cursor: pointer;
+    }
+  }
+
+  .progress-bar {
+    height: 6px;
+    border-radius: 999px;
+    background: var(--aph-border);
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--aph-accent);
+    transition: width 0.3s ease;
+  }
+
+  .progress-label {
+    font-size: 11px;
+    color: var(--aph-text-secondary);
+  }
+
+  .milestones {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 6px;
+
+    .milestone-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+
+      .done { text-decoration: line-through; color: var(--aph-text-secondary); }
+    }
+
+    .add-milestone {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+
+      input {
+        flex: 1;
+        padding: 6px 10px;
+        border: 1px solid var(--aph-border);
+        border-radius: var(--aph-radius-sm);
+        background: var(--aph-surface-solid);
+        color: var(--aph-text-primary);
+        font-size: 12px;
+      }
+
+      button {
+        width: 28px;
+        border: none;
+        border-radius: var(--aph-radius-sm);
+        background: var(--aph-accent-soft);
+        color: var(--aph-accent);
+        cursor: pointer;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.empty-state {
+  color: var(--aph-text-secondary);
+}

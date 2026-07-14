@@ -46,6 +46,10 @@ export const routes: Routes = [
         loadChildren: () =>
           import('./features/habits/habits.routes').then((m) => m.HABITS_ROUTES),
       },
+      {
+        path: 'goals',
+        loadChildren: () => import('./features/goals/goals.routes').then((m) => m.GOALS_ROUTES),
+      },
     ],
   },
   { path: '**', redirectTo: 'dashboard' },

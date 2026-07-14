@@ -1,0 +1,58 @@
+<h1>Goal Tracker</h1>
+
+<div class="new-goal aph-glass">
+  <input
+    type="text"
+    placeholder="New goal (e.g. Learn Spanish)"
+    [ngModel]="newTitle()"
+    (ngModelChange)="newTitle.set($event)"
+    (keyup.enter)="createGoal()"
+  />
+  <button (click)="createGoal()">Add</button>
+</div>
+
+@if (loading()) {
+  <p>Loading goals…</p>
+} @else if (goals().length === 0) {
+  <p class="empty-state">No goals yet — set your first one above.</p>
+} @else {
+  <div class="goal-list">
+    @for (goal of goals(); track trackByGoalId($index, goal)) {
+      <div class="goal-card aph-glass">
+        <div class="goal-header">
+          <span class="title">{{ goal.title }}</span>
+          <span class="status" [attr.data-status]="goal.status">{{ goal.status }}</span>
+          <button class="delete-btn" (click)="deleteGoal(goal.id)">✕</button>
+        </div>
+
+        <div class="progress-bar">
+          <div class="progress-fill" [style.width.%]="goal.computedProgress"></div>
+        </div>
+        <span class="progress-label">{{ goal.computedProgress }}% complete</span>
+
+        <div class="milestones">
+          @for (milestone of goal.milestones; track trackByMilestoneId($index, milestone)) {
+            <label class="milestone-row">
+              <input
+                type="checkbox"
+                [checked]="milestone.isDone"
+                (change)="toggleMilestone(goal.id, milestone.id)"
+              />
+              <span [class.done]="milestone.isDone">{{ milestone.title }}</span>
+            </label>
+          }
+          <div class="add-milestone">
+            <input
+              type="text"
+              placeholder="Add milestone…"
+              [ngModel]="milestoneDraft(goal.id)"
+              (ngModelChange)="setMilestoneDraft(goal.id, $event)"
+              (keyup.enter)="addMilestone(goal.id)"
+            />
+            <button (click)="addMilestone(goal.id)">+</button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

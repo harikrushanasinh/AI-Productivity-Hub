@@ -15,6 +15,7 @@ import { CalendarModule } from './modules/calendar/calendar.module';
 import { JournalModule } from './modules/journal/journal.module';
 import { ExpensesModule } from './modules/expenses/expenses.module';
 import { HabitsModule } from './modules/habits/habits.module';
+import { GoalsModule } from './modules/goals/goals.module';
 
 @Module({
   imports: [
@@ -39,6 +40,7 @@ import { HabitsModule } from './modules/habits/habits.module';
     JournalModule,
     ExpensesModule,
     HabitsModule,
+    GoalsModule,
   ],
   providers: [
     {
