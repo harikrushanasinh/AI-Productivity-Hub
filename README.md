@@ -82,7 +82,7 @@ live in `core/` and `common/`.
 | Expense Tracker | ✅ (see `docs/expense-tracker-module.md`) |
 | File Manager | 🔲 Planned |
 | Password Vault | 🔲 Planned |
-| Habit Tracker | 🔲 Planned |
+| Habit Tracker | ✅ (see `docs/habit-tracker-module.md`) |
 | Goal Tracker | 🔲 Planned |
 | Focus Timer | 🔲 Planned |
 | Bookmarks | 🔲 Planned |

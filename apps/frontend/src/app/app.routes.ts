@@ -41,6 +41,11 @@ export const routes: Routes = [
         loadChildren: () =>
           import('./features/expenses/expenses.routes').then((m) => m.EXPENSES_ROUTES),
       },
+      {
+        path: 'habits',
+        loadChildren: () =>
+          import('./features/habits/habits.routes').then((m) => m.HABITS_ROUTES),
+      },
     ],
   },
   { path: '**', redirectTo: 'dashboard' },

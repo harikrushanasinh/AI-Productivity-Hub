@@ -1,0 +1,41 @@
+<h1>Habit Tracker</h1>
+
+<div class="new-habit aph-glass">
+  <input
+    type="text"
+    placeholder="New habit (e.g. Read 20 minutes)"
+    [ngModel]="newName()"
+    (ngModelChange)="newName.set($event)"
+    (keyup.enter)="createHabit()"
+  />
+  <button (click)="createHabit()">Add</button>
+</div>
+
+@if (loading()) {
+  <p>Loading habits…</p>
+} @else if (habits().length === 0) {
+  <p class="empty-state">No habits yet — add one above to start building a streak.</p>
+} @else {
+  <div class="habit-grid">
+    @for (habit of habits(); track trackByHabitId($index, habit)) {
+      <div class="habit-card aph-glass">
+        <div class="habit-top">
+          <span class="dot" [style.background]="habit.color"></span>
+          <span class="name">{{ habit.name }}</span>
+          <button class="delete-btn" (click)="deleteHabit(habit.id)">✕</button>
+        </div>
+        <div class="streaks">
+          <span class="streak current">🔥 {{ habit.currentStreak }} day streak</span>
+          <span class="streak longest">Best: {{ habit.longestStreak }}</span>
+        </div>
+        <button
+          class="check-btn"
+          [class.done]="habit.completedToday"
+          (click)="toggleToday(habit)"
+        >
+          {{ habit.completedToday ? '✓ Done today' : 'Mark done today' }}
+        </button>
+      </div>
+    }
+  </div>
+}

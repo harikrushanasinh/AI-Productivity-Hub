@@ -1,0 +1,87 @@
+.new-habit {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  margin: 16px 0 24px;
+
+  input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--aph-border);
+    border-radius: var(--aph-radius-sm);
+    background: var(--aph-surface-solid);
+    color: var(--aph-text-primary);
+  }
+
+  button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: var(--aph-radius-sm);
+    background: var(--aph-accent);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.habit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.habit-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .habit-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .name { flex: 1; font-size: 14px; font-weight: 600; }
+
+    .delete-btn {
+      border: none;
+      background: transparent;
+      color: var(--aph-text-secondary);
+      cursor: pointer;
+    }
+  }
+
+  .streaks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--aph-text-secondary);
+  }
+
+  .check-btn {
+    padding: 9px;
+    border-radius: var(--aph-radius-sm);
+    border: 1px solid var(--aph-border);
+    background: var(--aph-surface-solid);
+    color: var(--aph-text-primary);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+
+    &.done {
+      background: var(--aph-accent);
+      border-color: var(--aph-accent);
+      color: white;
+    }
+  }
+}
+
+.empty-state {
+  color: var(--aph-text-secondary);
+}
