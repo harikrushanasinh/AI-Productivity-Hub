@@ -16,6 +16,7 @@ import { JournalModule } from './modules/journal/journal.module';
 import { ExpensesModule } from './modules/expenses/expenses.module';
 import { HabitsModule } from './modules/habits/habits.module';
 import { GoalsModule } from './modules/goals/goals.module';
+import { FocusModule } from './modules/focus/focus.module';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { GoalsModule } from './modules/goals/goals.module';
     ExpensesModule,
     HabitsModule,
     GoalsModule,
+    FocusModule,
   ],
   providers: [
     {

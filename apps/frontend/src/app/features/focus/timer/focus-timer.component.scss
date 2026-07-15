@@ -1,0 +1,129 @@
+.today-summary {
+  color: var(--aph-text-secondary);
+  font-size: 14px;
+  margin: 4px 0 20px;
+}
+
+.timer-card {
+  max-width: 360px;
+  margin: 0 auto 32px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.type-tabs {
+  display: flex;
+  gap: 6px;
+  background: var(--aph-surface-solid);
+  padding: 4px;
+  border-radius: var(--aph-radius-sm);
+
+  button {
+    padding: 6px 12px;
+    border: none;
+    background: transparent;
+    color: var(--aph-text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &.active {
+      background: var(--aph-accent);
+      color: white;
+    }
+  }
+}
+
+.ring-wrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+
+  .ring {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  .ring-bg {
+    fill: none;
+    stroke: var(--aph-border);
+    stroke-width: 8;
+  }
+
+  .ring-fill {
+    fill: none;
+    stroke: var(--aph-accent);
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 339.3;
+    transition: stroke-dashoffset 1s linear;
+  }
+
+  .time-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--aph-text-primary);
+  }
+}
+
+.controls {
+  .start-btn, .stop-btn {
+    padding: 12px 32px;
+    border: none;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .start-btn {
+    background: var(--aph-accent);
+    color: white;
+  }
+
+  .stop-btn {
+    background: var(--aph-danger);
+    color: white;
+  }
+}
+
+h2 {
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.history-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  font-size: 13px;
+  text-transform: capitalize;
+
+  .type { flex: 1; }
+  .duration { color: var(--aph-text-secondary); }
+
+  .status {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--aph-accent-soft);
+    color: var(--aph-accent);
+  }
+}

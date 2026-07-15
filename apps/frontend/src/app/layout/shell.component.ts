@@ -21,6 +21,7 @@ export class ShellComponent {
     { path: '/expenses', icon: '💰', label: 'Expenses' },
     { path: '/habits', icon: '🔥', label: 'Habits' },
     { path: '/goals', icon: '🎯', label: 'Goals' },
+    { path: '/focus', icon: '⏱️', label: 'Focus Timer' },
   ];
 
   constructor(

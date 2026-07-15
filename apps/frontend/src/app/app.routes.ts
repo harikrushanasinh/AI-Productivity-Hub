@@ -50,6 +50,10 @@ export const routes: Routes = [
         path: 'goals',
         loadChildren: () => import('./features/goals/goals.routes').then((m) => m.GOALS_ROUTES),
       },
+      {
+        path: 'focus',
+        loadChildren: () => import('./features/focus/focus.routes').then((m) => m.FOCUS_ROUTES),
+      },
     ],
   },
   { path: '**', redirectTo: 'dashboard' },

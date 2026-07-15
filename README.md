@@ -84,7 +84,7 @@ live in `core/` and `common/`.
 | Password Vault | 🔲 Planned |
 | Habit Tracker | ✅ (see `docs/habit-tracker-module.md`) |
 | Goal Tracker | ✅ (see `docs/goal-tracker-module.md`) |
-| Focus Timer | 🔲 Planned |
+| Focus Timer | ✅ (see `docs/focus-timer-module.md`) |
 | Bookmarks | 🔲 Planned |
 | Team Collaboration | 🔲 Planned |
 | Analytics | 🔲 Planned |

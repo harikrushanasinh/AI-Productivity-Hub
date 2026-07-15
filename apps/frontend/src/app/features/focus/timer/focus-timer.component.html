@@ -1,0 +1,45 @@
+<h1>Focus Timer</h1>
+
+@if (todayStats(); as stats) {
+  <p class="today-summary">🎯 {{ stats.totalFocusedMinutes }} minutes focused today</p>
+}
+
+<div class="timer-card aph-glass">
+  <div class="type-tabs">
+    <button [class.active]="sessionType() === 'work'" (click)="selectType('work')">Work</button>
+    <button [class.active]="sessionType() === 'short_break'" (click)="selectType('short_break')">Short break</button>
+    <button [class.active]="sessionType() === 'long_break'" (click)="selectType('long_break')">Long break</button>
+  </div>
+
+  <div class="ring-wrapper">
+    <svg viewBox="0 0 120 120" class="ring">
+      <circle cx="60" cy="60" r="54" class="ring-bg" />
+      <circle
+        cx="60" cy="60" r="54" class="ring-fill"
+        [style.stroke-dashoffset]="339.3 - (339.3 * progressPercent() / 100)"
+      />
+    </svg>
+    <span class="time-label">{{ minutesLabel() }}</span>
+  </div>
+
+  <div class="controls">
+    @if (!isRunning()) {
+      <button class="start-btn" (click)="start()">Start</button>
+    } @else {
+      <button class="stop-btn" (click)="stopEarly()">Stop</button>
+    }
+  </div>
+</div>
+
+@if (history().length > 0) {
+  <h2>Recent sessions</h2>
+  <div class="history-list">
+    @for (session of history(); track trackBySessionId($index, session)) {
+      <div class="history-row aph-glass">
+        <span class="type">{{ formatType(session.type) }}</span>
+        <span class="duration">{{ formatDuration(session.actualSeconds) }} min</span>
+        <span class="status" [attr.data-status]="session.status">{{ session.status }}</span>
+      </div>
+    }
+  </div>
+}
