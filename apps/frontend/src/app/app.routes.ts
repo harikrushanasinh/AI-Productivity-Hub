@@ -54,6 +54,11 @@ export const routes: Routes = [
         path: 'focus',
         loadChildren: () => import('./features/focus/focus.routes').then((m) => m.FOCUS_ROUTES),
       },
+      {
+        path: 'bookmarks',
+        loadChildren: () =>
+          import('./features/bookmarks/bookmarks.routes').then((m) => m.BOOKMARKS_ROUTES),
+      },
     ],
   },
   { path: '**', redirectTo: 'dashboard' },

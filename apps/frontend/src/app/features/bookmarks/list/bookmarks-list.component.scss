@@ -1,0 +1,88 @@
+.search-bar, .new-bookmark {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+
+  input {
+    flex: 1;
+    padding: 9px 12px;
+    border: 1px solid var(--aph-border);
+    border-radius: var(--aph-radius-sm);
+    background: var(--aph-surface-solid);
+    color: var(--aph-text-primary);
+    font-size: 13px;
+  }
+
+  button {
+    padding: 9px 18px;
+    border: none;
+    border-radius: var(--aph-radius-sm);
+    background: var(--aph-accent);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.new-bookmark {
+  margin-bottom: 24px;
+}
+
+.alert-error {
+  background: rgba(220, 38, 38, 0.1);
+  color: var(--aph-danger);
+  padding: 8px 12px;
+  border-radius: var(--aph-radius-sm);
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.bookmark-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.bookmark-card {
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  position: relative;
+
+  .favicon { width: 20px; height: 20px; border-radius: 4px; }
+
+  .title {
+    flex: 1;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--aph-text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .folder {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 999px;
+    background: var(--aph-accent-soft);
+    color: var(--aph-accent);
+  }
+
+  .favorite-btn, .delete-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--aph-text-secondary);
+  }
+
+  .favorite-btn.active { color: #fbbf24; }
+}
+
+.empty-state {
+  color: var(--aph-text-secondary);
+}

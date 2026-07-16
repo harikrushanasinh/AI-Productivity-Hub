@@ -1,0 +1,55 @@
+<h1>Bookmarks</h1>
+
+<div class="search-bar aph-glass">
+  <input
+    type="text"
+    placeholder="Search bookmarks…"
+    [ngModel]="searchTerm()"
+    (ngModelChange)="searchTerm.set($event)"
+    (keyup.enter)="refresh()"
+  />
+  <button (click)="refresh()">Search</button>
+</div>
+
+<div class="new-bookmark aph-glass">
+  <input
+    type="text"
+    placeholder="https://…"
+    [ngModel]="newUrl()"
+    (ngModelChange)="newUrl.set($event)"
+  />
+  <input
+    type="text"
+    placeholder="Title"
+    [ngModel]="newTitle()"
+    (ngModelChange)="newTitle.set($event)"
+  />
+  <button (click)="createBookmark()">Save</button>
+</div>
+@if (errorMessage()) {
+  <div class="alert-error">{{ errorMessage() }}</div>
+}
+
+@if (loading()) {
+  <p>Loading bookmarks…</p>
+} @else if (bookmarks().length === 0) {
+  <p class="empty-state">No bookmarks saved yet.</p>
+} @else {
+  <div class="bookmark-grid">
+    @for (bookmark of bookmarks(); track trackByBookmarkId($index, bookmark)) {
+      <a class="bookmark-card aph-glass" [href]="bookmark.url" target="_blank" rel="noopener">
+        @if (bookmark.faviconUrl) {
+          <img [src]="bookmark.faviconUrl" alt="" class="favicon" />
+        }
+        <span class="title">{{ bookmark.title }}</span>
+        <span class="folder">{{ bookmark.folder }}</span>
+        <button
+          class="favorite-btn"
+          [class.active]="bookmark.isFavorite"
+          (click)="toggleFavorite(bookmark); $event.preventDefault()"
+        >★</button>
+        <button class="delete-btn" (click)="deleteBookmark(bookmark.id); $event.preventDefault()">✕</button>
+      </a>
+    }
+  </div>
+}

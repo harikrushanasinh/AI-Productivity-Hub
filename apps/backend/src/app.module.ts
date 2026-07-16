@@ -17,6 +17,7 @@ import { ExpensesModule } from './modules/expenses/expenses.module';
 import { HabitsModule } from './modules/habits/habits.module';
 import { GoalsModule } from './modules/goals/goals.module';
 import { FocusModule } from './modules/focus/focus.module';
+import { BookmarksModule } from './modules/bookmarks/bookmarks.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { FocusModule } from './modules/focus/focus.module';
     HabitsModule,
     GoalsModule,
     FocusModule,
+    BookmarksModule,
   ],
   providers: [
     {

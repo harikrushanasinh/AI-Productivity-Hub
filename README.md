@@ -85,7 +85,7 @@ live in `core/` and `common/`.
 | Habit Tracker | ✅ (see `docs/habit-tracker-module.md`) |
 | Goal Tracker | ✅ (see `docs/goal-tracker-module.md`) |
 | Focus Timer | ✅ (see `docs/focus-timer-module.md`) |
-| Bookmarks | 🔲 Planned |
+| Bookmarks | ✅ (see `docs/bookmarks-module.md`) |
 | Team Collaboration | 🔲 Planned |
 | Analytics | 🔲 Planned |
 | Notifications | 🔲 Planned |
