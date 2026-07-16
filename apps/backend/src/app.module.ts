@@ -7,6 +7,7 @@ import databaseConfig from './core/config/database.config';
 import jwtConfig from './core/config/jwt.config';
 import { DatabaseModule } from './core/database/database.module';
 import { RedisModule } from './core/redis/redis.module';
+import { StorageModule } from './core/storage/storage.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { NotesModule } from './modules/notes/notes.module';
@@ -18,6 +19,7 @@ import { HabitsModule } from './modules/habits/habits.module';
 import { GoalsModule } from './modules/goals/goals.module';
 import { FocusModule } from './modules/focus/focus.module';
 import { BookmarksModule } from './modules/bookmarks/bookmarks.module';
+import { FilesModule } from './modules/files/files.module';
 
 @Module({
   imports: [
@@ -34,6 +36,7 @@ import { BookmarksModule } from './modules/bookmarks/bookmarks.module';
     ]),
     DatabaseModule,
     RedisModule,
+    StorageModule,
     AuthModule,
     UsersModule,
     NotesModule,
@@ -45,6 +48,7 @@ import { BookmarksModule } from './modules/bookmarks/bookmarks.module';
     GoalsModule,
     FocusModule,
     BookmarksModule,
+    FilesModule,
   ],
   providers: [
     {

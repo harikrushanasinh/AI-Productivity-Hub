@@ -59,6 +59,10 @@ export const routes: Routes = [
         loadChildren: () =>
           import('./features/bookmarks/bookmarks.routes').then((m) => m.BOOKMARKS_ROUTES),
       },
+      {
+        path: 'files',
+        loadChildren: () => import('./features/files/files.routes').then((m) => m.FILES_ROUTES),
+      },
     ],
   },
   { path: '**', redirectTo: 'dashboard' },

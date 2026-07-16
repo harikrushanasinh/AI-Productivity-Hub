@@ -23,6 +23,7 @@ export class ShellComponent {
     { path: '/goals', icon: '🎯', label: 'Goals' },
     { path: '/focus', icon: '⏱️', label: 'Focus Timer' },
     { path: '/bookmarks', icon: '🔖', label: 'Bookmarks' },
+    { path: '/files', icon: '📁', label: 'File Manager' },
   ];
 
   constructor(

@@ -1,0 +1,34 @@
+<h1>File Manager</h1>
+
+@if (stats(); as s) {
+  <div class="quota-bar aph-glass">
+    <div class="quota-fill" [style.width.%]="s.percentUsed"></div>
+    <span class="quota-label">{{ formatBytes(s.usedBytes) }} of {{ formatBytes(s.quotaBytes) }} used</span>
+  </div>
+}
+
+<label class="upload-zone aph-glass">
+  <input type="file" (change)="onFileSelected($event)" hidden />
+  {{ uploading() ? 'Uploading…' : '📤 Click to upload a file (max 25MB)' }}
+</label>
+
+@if (errorMessage()) {
+  <div class="alert-error">{{ errorMessage() }}</div>
+}
+
+@if (loading()) {
+  <p>Loading files…</p>
+} @else if (files().length === 0) {
+  <p class="empty-state">No files uploaded yet.</p>
+} @else {
+  <div class="file-list">
+    @for (file of files(); track trackByFileId($index, file)) {
+      <div class="file-row aph-glass">
+        <span class="name">{{ file.originalName }}</span>
+        <span class="size">{{ formatBytes(file.sizeBytes) }}</span>
+        <button class="download-btn" (click)="download(file)">Download</button>
+        <button class="delete-btn" (click)="deleteFile(file.id)">✕</button>
+      </div>
+    }
+  </div>
+}

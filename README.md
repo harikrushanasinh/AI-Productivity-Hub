@@ -80,7 +80,7 @@ live in `core/` and `common/`.
 | Calendar | ✅ (see `docs/calendar-module.md`) |
 | Journal | ✅ (see `docs/journal-module.md`) |
 | Expense Tracker | ✅ (see `docs/expense-tracker-module.md`) |
-| File Manager | 🔲 Planned |
+| File Manager | ✅ (see `docs/file-manager-module.md`) |
 | Password Vault | 🔲 Planned |
 | Habit Tracker | ✅ (see `docs/habit-tracker-module.md`) |
 | Goal Tracker | ✅ (see `docs/goal-tracker-module.md`) |
