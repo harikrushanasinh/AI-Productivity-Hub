@@ -23,6 +23,7 @@ import { BookmarksModule } from './modules/bookmarks/bookmarks.module';
 import { FilesModule } from './modules/files/files.module';
 import { VaultModule } from './modules/vault/vault.module';
 import { NotificationsModule } from './modules/notifications/notifications.module';
+import { TeamsModule } from './modules/teams/teams.module';
 
 @Module({
   imports: [
@@ -55,6 +56,7 @@ import { NotificationsModule } from './modules/notifications/notifications.modul
     FilesModule,
     VaultModule,
     NotificationsModule,
+    TeamsModule,
   ],
   providers: [
     {

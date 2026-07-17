@@ -1,0 +1,62 @@
+<h1>Team Collaboration</h1>
+
+<div class="new-team aph-glass">
+  <input
+    type="text"
+    placeholder="New team name"
+    [ngModel]="newTeamName()"
+    (ngModelChange)="newTeamName.set($event)"
+    (keyup.enter)="createTeam()"
+  />
+  <button (click)="createTeam()">Create team</button>
+</div>
+
+@if (lastInviteToken()) {
+  <div class="invite-token-banner aph-glass">
+    Invite sent — since email delivery isn't wired up yet, share this link manually:
+    <code>/teams/accept/{{ lastInviteToken() }}</code>
+  </div>
+}
+
+@if (loading()) {
+  <p>Loading teams…</p>
+} @else if (teams().length === 0) {
+  <p class="empty-state">You're not on any teams yet.</p>
+} @else {
+  <div class="team-list">
+    @for (team of teams(); track trackByTeamId($index, team)) {
+      <div class="team-card aph-glass">
+        <div class="team-header" (click)="toggleExpand(team.id)">
+          <span class="name">{{ team.name }}</span>
+          <button class="leave-btn" (click)="leaveTeam(team.id); $event.stopPropagation()">Leave</button>
+        </div>
+
+        @if (expandedTeamId() === team.id) {
+          <div class="team-body">
+            <div class="invite-row">
+              <input
+                type="email"
+                placeholder="Invite by email…"
+                [ngModel]="inviteDraft(team.id)"
+                (ngModelChange)="setInviteDraft(team.id, $event)"
+              />
+              <button (click)="sendInvite(team.id)">Invite</button>
+            </div>
+
+            <div class="member-list">
+              @for (member of membersByTeam()[team.id] ?? []; track trackByMemberId($index, member)) {
+                <div class="member-row">
+                  <span class="role" [attr.data-role]="member.role">{{ member.role }}</span>
+                  <span class="user-id">{{ member.userId }}</span>
+                  @if (member.role !== 'owner') {
+                    <button class="remove-btn" (click)="removeMember(team.id, member.userId)">Remove</button>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+}

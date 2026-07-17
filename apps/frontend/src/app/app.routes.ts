@@ -67,6 +67,10 @@ export const routes: Routes = [
         path: 'vault',
         loadChildren: () => import('./features/vault/vault.routes').then((m) => m.VAULT_ROUTES),
       },
+      {
+        path: 'teams',
+        loadChildren: () => import('./features/teams/teams.routes').then((m) => m.TEAMS_ROUTES),
+      },
     ],
   },
   { path: '**', redirectTo: 'dashboard' },

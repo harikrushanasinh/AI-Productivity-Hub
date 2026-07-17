@@ -1,0 +1,142 @@
+.new-team {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  margin: 16px 0 24px;
+
+  input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--aph-border);
+    border-radius: var(--aph-radius-sm);
+    background: var(--aph-surface-solid);
+    color: var(--aph-text-primary);
+  }
+
+  button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: var(--aph-radius-sm);
+    background: var(--aph-accent);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.invite-token-banner {
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: var(--aph-text-secondary);
+
+  code {
+    display: block;
+    margin-top: 4px;
+    color: var(--aph-accent);
+  }
+}
+
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.team-card {
+  padding: 16px;
+}
+
+.team-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+
+  .name { flex: 1; font-size: 15px; font-weight: 600; }
+
+  .leave-btn {
+    border: none;
+    background: transparent;
+    color: var(--aph-danger);
+    font-size: 12px;
+    cursor: pointer;
+  }
+}
+
+.team-body {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--aph-border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .invite-row {
+    display: flex;
+    gap: 8px;
+
+    input {
+      flex: 1;
+      padding: 8px 10px;
+      border: 1px solid var(--aph-border);
+      border-radius: var(--aph-radius-sm);
+      background: var(--aph-surface-solid);
+      color: var(--aph-text-primary);
+      font-size: 12px;
+    }
+
+    button {
+      padding: 8px 14px;
+      border: none;
+      border-radius: var(--aph-radius-sm);
+      background: var(--aph-accent-soft);
+      color: var(--aph-accent);
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 12px;
+    }
+  }
+
+  .member-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .member-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+
+    .role {
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--aph-accent-soft);
+      color: var(--aph-accent);
+      text-transform: capitalize;
+    }
+
+    .user-id {
+      flex: 1;
+      color: var(--aph-text-secondary);
+      font-family: monospace;
+      font-size: 11px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .remove-btn {
+      border: none;
+      background: transparent;
+      color: var(--aph-danger);
+      cursor: pointer;
+    }
+  }
+}
+
+.empty-state {
+  color: var(--aph-text-secondary);
+}
