@@ -1,0 +1,85 @@
+.subtitle {
+  color: var(--aph-text-secondary);
+  font-size: 13px;
+  margin: 4px 0 20px;
+}
+
+.new-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  margin-bottom: 24px;
+
+  input {
+    flex: 1;
+    min-width: 140px;
+    padding: 9px 12px;
+    border: 1px solid var(--aph-border);
+    border-radius: var(--aph-radius-sm);
+    background: var(--aph-surface-solid);
+    color: var(--aph-text-primary);
+    font-size: 13px;
+  }
+
+  button {
+    padding: 9px 18px;
+    border: none;
+    border-radius: var(--aph-radius-sm);
+    background: var(--aph-accent);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.vault-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vault-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+
+  .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .title { font-size: 14px; font-weight: 600; }
+    .username { font-size: 12px; color: var(--aph-text-secondary); }
+  }
+
+  .password-field {
+    font-family: monospace;
+    font-size: 13px;
+    color: var(--aph-text-secondary);
+    min-width: 100px;
+  }
+
+  .reveal-btn {
+    padding: 6px 14px;
+    border: 1px solid var(--aph-border);
+    border-radius: var(--aph-radius-sm);
+    background: var(--aph-surface-solid);
+    color: var(--aph-text-primary);
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .delete-btn {
+    border: none;
+    background: transparent;
+    color: var(--aph-danger);
+    cursor: pointer;
+  }
+}
+
+.empty-state {
+  color: var(--aph-text-secondary);
+}

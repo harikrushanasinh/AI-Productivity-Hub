@@ -1,0 +1,52 @@
+<h1>Password Vault</h1>
+<p class="subtitle">Passwords are encrypted (AES-256-GCM) and only decrypted when you tap Reveal.</p>
+
+<div class="new-item aph-glass">
+  <input
+    type="text"
+    placeholder="Site or app name"
+    [ngModel]="newTitle()"
+    (ngModelChange)="newTitle.set($event)"
+  />
+  <input
+    type="text"
+    placeholder="Username / email (optional)"
+    [ngModel]="newUsername()"
+    (ngModelChange)="newUsername.set($event)"
+  />
+  <input
+    type="password"
+    placeholder="Password"
+    [ngModel]="newPassword()"
+    (ngModelChange)="newPassword.set($event)"
+  />
+  <button (click)="createItem()">Save</button>
+</div>
+
+@if (loading()) {
+  <p>Loading vault…</p>
+} @else if (items().length === 0) {
+  <p class="empty-state">Your vault is empty.</p>
+} @else {
+  <div class="vault-list">
+    @for (item of items(); track trackByItemId($index, item)) {
+      <div class="vault-row aph-glass">
+        <div class="info">
+          <span class="title">{{ item.title }}</span>
+          @if (item.username) {
+            <span class="username">{{ item.username }}</span>
+          }
+        </div>
+
+        <span class="password-field">
+          {{ isRevealed(item.id) ? revealedValue(item.id) : '••••••••' }}
+        </span>
+
+        <button class="reveal-btn" (click)="toggleReveal(item.id)">
+          {{ isRevealed(item.id) ? 'Hide' : 'Reveal' }}
+        </button>
+        <button class="delete-btn" (click)="deleteItem(item.id)">✕</button>
+      </div>
+    }
+  </div>
+}

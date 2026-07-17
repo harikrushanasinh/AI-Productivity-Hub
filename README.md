@@ -81,7 +81,7 @@ live in `core/` and `common/`.
 | Journal | ✅ (see `docs/journal-module.md`) |
 | Expense Tracker | ✅ (see `docs/expense-tracker-module.md`) |
 | File Manager | ✅ (see `docs/file-manager-module.md`) |
-| Password Vault | 🔲 Planned |
+| Password Vault | ✅ (see `docs/password-vault-module.md`) |
 | Habit Tracker | ✅ (see `docs/habit-tracker-module.md`) |
 | Goal Tracker | ✅ (see `docs/goal-tracker-module.md`) |
 | Focus Timer | ✅ (see `docs/focus-timer-module.md`) |

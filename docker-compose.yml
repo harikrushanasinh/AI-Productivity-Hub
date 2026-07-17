@@ -68,6 +68,7 @@ services:
       REDIS_PORT: 6379
       JWT_SECRET: ${JWT_SECRET:-change_me}
       JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-change_me_too}
+      VAULT_ENCRYPTION_KEY: ${VAULT_ENCRYPTION_KEY:-change_me_vault_key_min_32_chars}
     ports:
       - "3000:3000"
 

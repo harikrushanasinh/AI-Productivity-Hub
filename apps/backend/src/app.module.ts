@@ -8,6 +8,7 @@ import jwtConfig from './core/config/jwt.config';
 import { DatabaseModule } from './core/database/database.module';
 import { RedisModule } from './core/redis/redis.module';
 import { StorageModule } from './core/storage/storage.module';
+import { CryptoModule } from './core/crypto/crypto.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { NotesModule } from './modules/notes/notes.module';
@@ -20,6 +21,7 @@ import { GoalsModule } from './modules/goals/goals.module';
 import { FocusModule } from './modules/focus/focus.module';
 import { BookmarksModule } from './modules/bookmarks/bookmarks.module';
 import { FilesModule } from './modules/files/files.module';
+import { VaultModule } from './modules/vault/vault.module';
 
 @Module({
   imports: [
@@ -37,6 +39,7 @@ import { FilesModule } from './modules/files/files.module';
     DatabaseModule,
     RedisModule,
     StorageModule,
+    CryptoModule,
     AuthModule,
     UsersModule,
     NotesModule,
@@ -49,6 +52,7 @@ import { FilesModule } from './modules/files/files.module';
     FocusModule,
     BookmarksModule,
     FilesModule,
+    VaultModule,
   ],
   providers: [
     {

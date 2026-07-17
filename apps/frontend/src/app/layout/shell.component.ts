@@ -24,6 +24,7 @@ export class ShellComponent {
     { path: '/focus', icon: '⏱️', label: 'Focus Timer' },
     { path: '/bookmarks', icon: '🔖', label: 'Bookmarks' },
     { path: '/files', icon: '📁', label: 'File Manager' },
+    { path: '/vault', icon: '🔐', label: 'Password Vault' },
   ];
 
   constructor(

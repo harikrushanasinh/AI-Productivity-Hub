@@ -63,6 +63,10 @@ export const routes: Routes = [
         path: 'files',
         loadChildren: () => import('./features/files/files.routes').then((m) => m.FILES_ROUTES),
       },
+      {
+        path: 'vault',
+        loadChildren: () => import('./features/vault/vault.routes').then((m) => m.VAULT_ROUTES),
+      },
     ],
   },
   { path: '**', redirectTo: 'dashboard' },
