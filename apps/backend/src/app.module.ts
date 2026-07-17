@@ -22,6 +22,7 @@ import { FocusModule } from './modules/focus/focus.module';
 import { BookmarksModule } from './modules/bookmarks/bookmarks.module';
 import { FilesModule } from './modules/files/files.module';
 import { VaultModule } from './modules/vault/vault.module';
+import { NotificationsModule } from './modules/notifications/notifications.module';
 
 @Module({
   imports: [
@@ -53,6 +54,7 @@ import { VaultModule } from './modules/vault/vault.module';
     BookmarksModule,
     FilesModule,
     VaultModule,
+    NotificationsModule,
   ],
   providers: [
     {

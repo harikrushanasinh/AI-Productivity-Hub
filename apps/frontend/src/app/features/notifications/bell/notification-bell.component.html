@@ -1,0 +1,32 @@
+<div class="bell-wrapper">
+  <button class="bell-btn" (click)="toggleOpen()">
+    🔔
+    @if (unreadCount() > 0) {
+      <span class="badge">{{ unreadCount() > 9 ? '9+' : unreadCount() }}</span>
+    }
+  </button>
+
+  @if (isOpen()) {
+    <div class="dropdown aph-glass">
+      <div class="dropdown-header">
+        <span>Notifications</span>
+        <button class="mark-all-btn" (click)="markAllRead()">Mark all read</button>
+      </div>
+
+      @if (notifications().length === 0) {
+        <p class="empty-state">You're all caught up.</p>
+      } @else {
+        <div class="notification-list">
+          @for (n of notifications(); track trackByNotificationId($index, n)) {
+            <div class="notification-item" [class.unread]="!n.isRead" (click)="markRead(n)">
+              <span class="title">{{ n.title }}</span>
+              @if (n.message) {
+                <span class="message">{{ n.message }}</span>
+              }
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

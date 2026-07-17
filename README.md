@@ -88,7 +88,7 @@ live in `core/` and `common/`.
 | Bookmarks | ✅ (see `docs/bookmarks-module.md`) |
 | Team Collaboration | 🔲 Planned |
 | Analytics | 🔲 Planned |
-| Notifications | 🔲 Planned |
+| Notifications | ✅ (see `docs/notifications-module.md`) |
 | AI Assistant (Chat, OCR, Rewrite, Summary, etc.) | 🔲 Planned |
 
 Each module, when built, will ship with: folder structure, DB design, API endpoints,
