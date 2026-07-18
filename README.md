@@ -87,7 +87,7 @@ live in `core/` and `common/`.
 | Focus Timer | ✅ (see `docs/focus-timer-module.md`) |
 | Bookmarks | ✅ (see `docs/bookmarks-module.md`) |
 | Team Collaboration | ✅ (see `docs/team-collaboration-module.md`) |
-| Analytics | 🔲 Planned |
+| Analytics | ✅ (see `docs/analytics-module.md`) |
 | Notifications | ✅ (see `docs/notifications-module.md`) |
 | AI Assistant (Chat, OCR, Rewrite, Summary, etc.) | 🔲 Planned |
 

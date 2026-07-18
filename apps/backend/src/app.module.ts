@@ -24,6 +24,7 @@ import { FilesModule } from './modules/files/files.module';
 import { VaultModule } from './modules/vault/vault.module';
 import { NotificationsModule } from './modules/notifications/notifications.module';
 import { TeamsModule } from './modules/teams/teams.module';
+import { AnalyticsModule } from './modules/analytics/analytics.module';
 
 @Module({
   imports: [
@@ -57,6 +58,7 @@ import { TeamsModule } from './modules/teams/teams.module';
     VaultModule,
     NotificationsModule,
     TeamsModule,
+    AnalyticsModule,
   ],
   providers: [
     {

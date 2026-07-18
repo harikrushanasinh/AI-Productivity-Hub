@@ -1,0 +1,47 @@
+<h1>Analytics</h1>
+
+@if (loading()) {
+  <p>Loading your stats…</p>
+} @else if (dashboard(); as d) {
+  <div class="stats-grid">
+    <div class="stat-card aph-glass">
+      <span class="label">Task completion</span>
+      <span class="value">{{ d.tasks.completionRate }}%</span>
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="d.tasks.completionRate"></div>
+      </div>
+      <span class="sub">{{ d.tasks.done }} done · {{ d.tasks.inProgress }} in progress · {{ d.tasks.todo }} to do</span>
+    </div>
+
+    <div class="stat-card aph-glass">
+      <span class="label">This month's net</span>
+      <span class="value" [class.positive]="d.expenses.monthNet >= 0" [class.negative]="d.expenses.monthNet < 0">
+        {{ formatCurrency(d.expenses.monthNet) }}
+      </span>
+      <span class="sub">
+        {{ formatCurrency(d.expenses.monthIncome) }} in · {{ formatCurrency(d.expenses.monthExpense) }} out
+      </span>
+    </div>
+
+    <div class="stat-card aph-glass">
+      <span class="label">Habit streaks</span>
+      <span class="value">{{ d.habits.averageCurrentStreak }} days avg</span>
+      <span class="sub">{{ d.habits.activeCount }} active habits</span>
+    </div>
+
+    <div class="stat-card aph-glass">
+      <span class="label">Goal progress</span>
+      <span class="value">{{ d.goals.averageProgress }}%</span>
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="d.goals.averageProgress"></div>
+      </div>
+      <span class="sub">{{ d.goals.activeCount }} active · {{ d.goals.completedCount }} completed</span>
+    </div>
+
+    <div class="stat-card aph-glass">
+      <span class="label">Focus time</span>
+      <span class="value">{{ d.focus.todayMinutes }} min today</span>
+      <span class="sub">{{ d.focus.last7DaysMinutes }} min over the last 7 days</span>
+    </div>
+  </div>
+}

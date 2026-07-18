@@ -27,6 +27,7 @@ export class ShellComponent {
     { path: '/files', icon: '📁', label: 'File Manager' },
     { path: '/vault', icon: '🔐', label: 'Password Vault' },
     { path: '/teams', icon: '👥', label: 'Teams' },
+    { path: '/analytics', icon: '📊', label: 'Analytics' },
   ];
 
   constructor(
