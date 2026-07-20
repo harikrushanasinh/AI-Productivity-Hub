@@ -9,6 +9,7 @@ import { DatabaseModule } from './core/database/database.module';
 import { RedisModule } from './core/redis/redis.module';
 import { StorageModule } from './core/storage/storage.module';
 import { CryptoModule } from './core/crypto/crypto.module';
+import { AiProviderModule } from './core/ai/ai-provider.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { NotesModule } from './modules/notes/notes.module';
@@ -25,6 +26,7 @@ import { VaultModule } from './modules/vault/vault.module';
 import { NotificationsModule } from './modules/notifications/notifications.module';
 import { TeamsModule } from './modules/teams/teams.module';
 import { AnalyticsModule } from './modules/analytics/analytics.module';
+import { AiModule } from './modules/ai/ai.module';
 
 @Module({
   imports: [
@@ -43,6 +45,7 @@ import { AnalyticsModule } from './modules/analytics/analytics.module';
     RedisModule,
     StorageModule,
     CryptoModule,
+    AiProviderModule,
     AuthModule,
     UsersModule,
     NotesModule,
@@ -59,6 +62,7 @@ import { AnalyticsModule } from './modules/analytics/analytics.module';
     NotificationsModule,
     TeamsModule,
     AnalyticsModule,
+    AiModule,
   ],
   providers: [
     {

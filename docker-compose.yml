@@ -69,6 +69,7 @@ services:
       JWT_SECRET: ${JWT_SECRET:-change_me}
       JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-change_me_too}
       VAULT_ENCRYPTION_KEY: ${VAULT_ENCRYPTION_KEY:-change_me_vault_key_min_32_chars}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
     ports:
       - "3000:3000"
 

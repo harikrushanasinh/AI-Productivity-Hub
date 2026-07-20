@@ -1,0 +1,89 @@
+<h1>AI Assistant</h1>
+
+<div class="tool-tabs">
+  <button [class.active]="activeTool() === 'chat'" (click)="selectTool('chat')">💬 Chat</button>
+  <button [class.active]="activeTool() === 'rewrite'" (click)="selectTool('rewrite')">✏️ Rewrite</button>
+  <button [class.active]="activeTool() === 'email'" (click)="selectTool('email')">📧 Email Writer</button>
+  <button [class.active]="activeTool() === 'summary'" (click)="selectTool('summary')">📝 Meeting Summary</button>
+  <button [class.active]="activeTool() === 'code'" (click)="selectTool('code')">💻 Code Generator</button>
+  <button [class.active]="activeTool() === 'planner'" (click)="selectTool('planner')">📅 Daily Planner</button>
+</div>
+
+@if (errorMessage()) {
+  <div class="alert-error">{{ errorMessage() }}</div>
+}
+
+<div class="tool-panel aph-glass">
+  @switch (activeTool()) {
+    @case ('chat') {
+      <div class="chat-panel">
+        <div class="chat-messages">
+          @for (msg of chatMessages(); track trackByMessageId($index, msg)) {
+            <div class="chat-bubble" [class.user]="msg.role === 'user'">{{ msg.content }}</div>
+          }
+          @if (loading()) {
+            <div class="chat-bubble">Thinking…</div>
+          }
+        </div>
+        <div class="chat-input-row">
+          <input
+            type="text"
+            placeholder="Ask anything…"
+            [ngModel]="chatInput()"
+            (ngModelChange)="chatInput.set($event)"
+            (keyup.enter)="sendChatMessage()"
+          />
+          <button (click)="sendChatMessage()">Send</button>
+        </div>
+      </div>
+    }
+
+    @case ('rewrite') {
+      <textarea rows="5" placeholder="Paste text to rewrite…" [ngModel]="rewriteInput()" (ngModelChange)="rewriteInput.set($event)"></textarea>
+      <select [ngModel]="rewriteTone()" (ngModelChange)="rewriteTone.set($event)">
+        <option value="professional">Professional</option>
+        <option value="friendly">Friendly</option>
+        <option value="concise">Concise</option>
+        <option value="persuasive">Persuasive</option>
+      </select>
+      <button (click)="runRewrite()">Rewrite</button>
+      @if (rewriteResult()) {
+        <div class="result-box">{{ rewriteResult() }}</div>
+      }
+    }
+
+    @case ('email') {
+      <textarea rows="3" placeholder="What's the email for? e.g. 'Ask for two days off next week'" [ngModel]="emailIntent()" (ngModelChange)="emailIntent.set($event)"></textarea>
+      <button (click)="runEmailWriter()">Draft email</button>
+      @if (emailResult()) {
+        <div class="result-box">{{ emailResult() }}</div>
+      }
+    }
+
+    @case ('summary') {
+      <textarea rows="8" placeholder="Paste a meeting transcript or notes…" [ngModel]="transcriptInput()" (ngModelChange)="transcriptInput.set($event)"></textarea>
+      <button (click)="runMeetingSummary()">Summarize</button>
+      @if (summaryResult()) {
+        <div class="result-box">{{ summaryResult() }}</div>
+      }
+    }
+
+    @case ('code') {
+      <textarea rows="3" placeholder="Describe the code you need…" [ngModel]="codePrompt()" (ngModelChange)="codePrompt.set($event)"></textarea>
+      <input type="text" placeholder="Language (e.g. typescript)" [ngModel]="codeLanguage()" (ngModelChange)="codeLanguage.set($event)" />
+      <button (click)="runCodeGenerator()">Generate</button>
+      @if (codeResult()) {
+        <pre class="result-box code-block">{{ codeResult() }}</pre>
+      }
+    }
+
+    @case ('planner') {
+      <p class="hint">Drafts a plan using your open tasks and today's calendar events.</p>
+      <textarea rows="2" placeholder="Anything else to consider today? (optional)" [ngModel]="plannerNotes()" (ngModelChange)="plannerNotes.set($event)"></textarea>
+      <button (click)="runDailyPlanner()">Plan my day</button>
+      @if (plannerResult()) {
+        <div class="result-box">{{ plannerResult() }}</div>
+      }
+    }
+  }
+</div>

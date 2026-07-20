@@ -15,6 +15,7 @@ import { NotificationBellComponent } from '../features/notifications/bell/notifi
 export class ShellComponent {
   readonly navItems = [
     { path: '/dashboard', icon: '🏠', label: 'Dashboard' },
+    { path: '/ai', icon: '✨', label: 'AI Assistant' },
     { path: '/notes', icon: '📝', label: 'Notes' },
     { path: '/tasks', icon: '✅', label: 'Tasks' },
     { path: '/calendar', icon: '📅', label: 'Calendar' },

@@ -89,7 +89,9 @@ live in `core/` and `common/`.
 | Team Collaboration | ✅ (see `docs/team-collaboration-module.md`) |
 | Analytics | ✅ (see `docs/analytics-module.md`) |
 | Notifications | ✅ (see `docs/notifications-module.md`) |
-| AI Assistant (Chat, OCR, Rewrite, Summary, etc.) | 🔲 Planned |
+| AI Assistant (Chat, OCR, Rewrite, Summary, etc.) | ✅ (see `docs/ai-assistant-module.md`) |
+
+**All 15 modules complete.** 🎉
 
 Each module, when built, will ship with: folder structure, DB design, API endpoints,
 Angular components, UI flow, validation rules, business logic, tests, and deployment notes.

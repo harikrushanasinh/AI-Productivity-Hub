@@ -76,6 +76,10 @@ export const routes: Routes = [
         loadChildren: () =>
           import('./features/analytics/analytics.routes').then((m) => m.ANALYTICS_ROUTES),
       },
+      {
+        path: 'ai',
+        loadChildren: () => import('./features/ai/ai.routes').then((m) => m.AI_ROUTES),
+      },
     ],
   },
   { path: '**', redirectTo: 'dashboard' },
