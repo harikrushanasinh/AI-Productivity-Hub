@@ -61,8 +61,8 @@ describe('Calendar (e2e)', () => {
       .get('/api/calendar/events')
       .set('Authorization', `Bearer ${accessToken}`)
       .expect(200)
-      .expect((res) => {
-        expect(res.body.data.some((e: { id: string }) => e.id === eventId)).toBe(true);
+      .expect((res: { body: { data: Array<{ id: string }> } }) => {
+        expect(res.body.data.some((e) => e.id === eventId)).toBe(true);
       });
 
     await request(app.getHttpServer())

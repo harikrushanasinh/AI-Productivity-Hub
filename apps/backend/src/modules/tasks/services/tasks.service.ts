@@ -21,13 +21,21 @@ export class TasksService {
   }
 
   create(ownerId: string, dto: CreateTaskDto): Promise<Task> {
-    const task = this.tasksRepository.create({ ...dto, ownerId, createdBy: ownerId });
+    const task = this.tasksRepository.create({
+      ...dto,
+      dueDate: dto.dueDate ? new Date(dto.dueDate) : null,
+      ownerId,
+      createdBy: ownerId,
+    });
     return this.tasksRepository.save(task);
   }
 
   async update(id: string, ownerId: string, dto: UpdateTaskDto): Promise<Task> {
     const task = await this.findOne(id, ownerId);
-    Object.assign(task, dto, { updatedBy: ownerId });
+    Object.assign(task, dto, {
+      dueDate: dto.dueDate !== undefined ? (dto.dueDate ? new Date(dto.dueDate) : null) : task.dueDate,
+      updatedBy: ownerId,
+    });
     return this.tasksRepository.save(task);
   }
 

@@ -16,6 +16,11 @@
     "strictNullChecks": true,
     "noImplicitAny": true,
     "strictBindCallApply": true,
+    // TypeORM entity columns and class-validator DTO fields are populated by
+    // the ORM / request deserializer, not by a constructor — this flag would
+    // otherwise force a definite-assignment assertion (`!`) on every single
+    // field across every entity and DTO for no real safety benefit here.
+    "strictPropertyInitialization": false,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
