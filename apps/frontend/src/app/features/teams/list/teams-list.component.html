@@ -44,7 +44,7 @@
             </div>
 
             <div class="member-list">
-              @for (member of membersByTeam()[team.id] ?? []; track trackByMemberId($index, member)) {
+              @for (member of membersFor(team.id); track trackByMemberId($index, member)) {
                 <div class="member-row">
                   <span class="role" [attr.data-role]="member.role">{{ member.role }}</span>
                   <span class="user-id">{{ member.userId }}</span>

@@ -92,6 +92,10 @@ export class TeamsListComponent implements OnInit {
     });
   }
 
+  membersFor(teamId: string): TeamMember[] {
+    return this.membersByTeam()[teamId] ?? [];
+  }
+
   trackByTeamId(_index: number, team: Team): string {
     return team.id;
   }
